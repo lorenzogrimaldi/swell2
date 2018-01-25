@@ -1,0 +1,54 @@
+
+<div *ngIf="persona">
+    <h2><span>Persona</span> {{persona.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Nombre</span></dt>
+        <dd>
+            <span>{{persona.nombre}}</span>
+        </dd>
+        <dt><span>Apellido</span></dt>
+        <dd>
+            <span>{{persona.apellido}}</span>
+        </dd>
+        <dt><span>Fechanacimiento</span></dt>
+        <dd>
+            <span>{{persona.fechanacimiento | date:'medium'}}</span>
+        </dd>
+        <dt><span>Dui</span></dt>
+        <dd>
+            <span>{{persona.dui}}</span>
+        </dd>
+        <dt><span>Nit</span></dt>
+        <dd>
+            <span>{{persona.nit}}</span>
+        </dd>
+        <dt><span>Direccion</span></dt>
+        <dd>
+            <span>{{persona.direccion}}</span>
+        </dd>
+        <dt><span>Telefono</span></dt>
+        <dd>
+            <span>{{persona.telefono}}</span>
+        </dd>
+        <dt><span>Correo</span></dt>
+        <dd>
+            <span>{{persona.correo}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'persona/'+ persona.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

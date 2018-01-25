@@ -1,0 +1,70 @@
+<div>
+    <h2>
+        <span>Entidads</span>
+        <button class="btn btn-primary float-right jh-create-entity create-entidad" [routerLink]="['/', { outlets: { popup: ['entidad-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Entidad
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="entidads">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Nombre</span></th>
+            <th><span>Representante</span></th>
+            <th><span>Telefonofijo</span></th>
+            <th><span>Correo</span></th>
+            <th><span>Celular</span></th>
+            <th><span>Direccion</span></th>
+            <th><span>Telefono</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let entidad of entidads ;trackBy: trackId">
+                <td><a [routerLink]="['../entidad', entidad.id ]">{{entidad.id}}</a></td>
+                <td>{{entidad.nombre}}</td>
+                <td>{{entidad.representante}}</td>
+                <td>{{entidad.telefonofijo}}</td>
+                <td>{{entidad.correo}}</td>
+                <td>{{entidad.celular}}</td>
+                <td>{{entidad.direccion}}</td>
+                <td>{{entidad.telefono}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../entidad', entidad.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'entidad/'+ entidad.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'entidad/'+ entidad.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

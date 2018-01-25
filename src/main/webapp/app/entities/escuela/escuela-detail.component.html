@@ -1,0 +1,32 @@
+
+<div *ngIf="escuela">
+    <h2><span>Escuela</span> {{escuela.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Fundacion</span></dt>
+        <dd>
+            <span>{{escuela.fundacion | date:'medium'}}</span>
+        </dd>
+        <dt><span>Entidad</span></dt>
+        <dd>
+            <div *ngIf="escuela.entidad">
+                <a [routerLink]="['/entidad', escuela.entidad?.id]">{{escuela.entidad?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'escuela/'+ escuela.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
