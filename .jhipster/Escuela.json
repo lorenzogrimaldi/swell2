@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "idEntidad",
+            "otherEntityName": "entidad",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "escuela"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "fundacion",
+            "fieldType": "Date"
+        }
+    ],
+    "changelogDate": "20180125031242",
+    "entityTableName": "escuela",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

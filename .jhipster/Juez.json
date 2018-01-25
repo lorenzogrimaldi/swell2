@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "idPersona",
+            "otherEntityName": "persona",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "juez"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180125031238",
+    "entityTableName": "juez",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

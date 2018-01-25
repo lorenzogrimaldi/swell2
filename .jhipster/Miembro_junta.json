@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "idPersona",
+            "otherEntityName": "persona",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "miembro_junta"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "niveljerarquia",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180125031239",
+    "entityTableName": "miembro_junta",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}
