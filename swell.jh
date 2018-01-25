@@ -1,0 +1,78 @@
+
+entity Persona {
+	id Integer,
+    nombre String required,
+    apellido String required,
+    fecha_nacimiento Date,
+    dui String required,
+    nit String,
+    direccion String,
+    telefono String,
+    correo String
+    sexo Enum
+}
+
+entity  Juez {
+	id Integer,
+    descripcion String
+}
+
+relationship OneToOne {
+	Juez{idPersona} to Persona
+   
+}
+
+entity  Miembro_junta {
+	id Integer,
+    nivel_jerarquia String
+}
+
+relationship OneToOne {
+	Miembro_junta{idPersona} to Persona
+   
+}
+
+entity  Entrenador {
+	id Integer,
+    descripcion String
+}
+
+relationship OneToOne {
+	Entrenador{idPersona} to Persona
+   
+}
+
+entity Entidad {
+	id Integer,
+    nombre String,
+    representante String,
+    telefono_fijo String,
+    correo String,
+    celular String,
+    direccion String,
+    telefono String,
+    correo String
+    sexo Enum
+}
+
+entity Escuela {
+	id Integer,
+    fundacion Date
+}
+
+entity Club {
+	id Integer,
+    fundacion Date
+}
+
+relationship OneToOne {
+	Escuela{idEntidad} to Entidad  
+}
+
+relationship OneToOne {
+	Club{idEntidad} to Entidad   
+}
+
+
+
+

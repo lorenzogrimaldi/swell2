@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "idEntidad",
+            "otherEntityName": "entidad",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "club"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "fundacion",
+            "fieldType": "Date"
+        }
+    ],
+    "changelogDate": "20180125025808",
+    "entityTableName": "club",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}
