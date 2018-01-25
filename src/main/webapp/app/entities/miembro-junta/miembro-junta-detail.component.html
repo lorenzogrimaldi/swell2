@@ -1,0 +1,32 @@
+
+<div *ngIf="miembro_junta">
+    <h2><span>Miembro Junta</span> {{miembro_junta.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Niveljerarquia</span></dt>
+        <dd>
+            <span>{{miembro_junta.niveljerarquia}}</span>
+        </dd>
+        <dt><span>Persona</span></dt>
+        <dd>
+            <div *ngIf="miembro_junta.persona">
+                <a [routerLink]="['/persona', miembro_junta.persona?.id]">{{miembro_junta.persona?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'miembro-junta/'+ miembro_junta.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

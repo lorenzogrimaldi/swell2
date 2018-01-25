@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span>Escuelas</span>
+        <button class="btn btn-primary float-right jh-create-entity create-escuela" [routerLink]="['/', { outlets: { popup: ['escuela-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Escuela
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="escuelas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Fundacion</span></th>
+            <th><span>Entidad</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let escuela of escuelas ;trackBy: trackId">
+                <td><a [routerLink]="['../escuela', escuela.id ]">{{escuela.id}}</a></td>
+                <td>{{escuela.fundacion | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="escuela.entidad">
+                        <a [routerLink]="['../entidad', escuela.entidad?.id ]" >{{escuela.entidad?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../escuela', escuela.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'escuela/'+ escuela.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'escuela/'+ escuela.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

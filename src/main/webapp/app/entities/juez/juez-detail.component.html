@@ -1,0 +1,32 @@
+
+<div *ngIf="juez">
+    <h2><span>Juez</span> {{juez.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Descripcion</span></dt>
+        <dd>
+            <span>{{juez.descripcion}}</span>
+        </dd>
+        <dt><span>Persona</span></dt>
+        <dd>
+            <div *ngIf="juez.persona">
+                <a [routerLink]="['/persona', juez.persona?.id]">{{juez.persona?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'juez/'+ juez.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
