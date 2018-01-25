@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "idPersona",
+            "otherEntityName": "persona",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "entrenador"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180125031240",
+    "entityTableName": "entrenador",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}
